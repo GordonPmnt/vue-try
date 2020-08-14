@@ -13,26 +13,7 @@
 
 <body>
     <div id="app">
-        <a :href="link" :title="message">{{ message }}</a>
 
-        <ul>
-            <li v-for="person in persons">{{ person }}</li>
-        </ul>
-
-        <p @click="switchMe" :style="styleSwitch()">
-            Switch me!
-        </p>
-
-        <div :class="success ? 'checked' : 'unchecked' " :style="style">
-            <p v-if="success">Checked</p>
-            <p v-else>Unchecked</p>
-        </div>
-
-        <input type="text" v-model="message">
-        <input type="checkbox" v-model="success">
-
-        <input type="checkbox" v-model="className" :true-value="'checked'" :false-value="'unchecked'">
-        <div :class="className">2nd box</div>
     </div>
 
     <script 
