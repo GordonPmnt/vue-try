@@ -21,5 +21,10 @@ let vm = new Vue({
                 this.lastname = nameParts[1]
             }
         }
-    }
+    },
+    watch: {
+        fullname(value) {
+            console.log(value)
+        }
+    },
 })
