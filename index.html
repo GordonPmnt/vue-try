@@ -12,7 +12,13 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" :class="cls">
+
+        <input type="checkbox" v-model="success"/>
+
+        <input type="text" v-model="message"/>
+
+        <p>Message: {{ message }}</p>
 
     </div>
 
