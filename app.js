@@ -7,8 +7,11 @@ let vm = new Vue({
         
     },
     mounted() {
-        setInterval(() => {
+        this.$interval = setInterval(() => {
             this.seconds++
         }, 1000)
+    },
+    destroyed() {
+        clearInterval(this.$interval)
     },
 })
