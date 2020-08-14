@@ -7,15 +7,15 @@ let vm = new Vue({
         lastname: 'Preumont'
     },
     computed: {
-        cls: function() {
+        cls() {
             console.log('cls called')
             return this.success ? 'success' : 'error'
         },
         fullname: {
-            get: function() {
+            get() {
                 return `${this.firstname} ${this.lastname}`
             },
-            set: function(value) {
+            set(value) {
                 const nameParts = value.split(' ')
                 this.firstname = nameParts[0]
                 this.lastname = nameParts[1]
