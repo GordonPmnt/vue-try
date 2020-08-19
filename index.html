@@ -13,6 +13,18 @@
 
 <body>
     <div id="app">
+        <a :href="link" @click.prevent="clicked" >Link with no redirect</a>
+        <br />
+        <input type="text" v-model="normal" />
+        <p>{{ normal }}</p>
+        <input type="text" v-model.lazy="lazy" />
+        <p>{{ lazy }}</p>
+        <input type="text" v-model="keyboard" @keyup.space="pressed" />
+        <p>{{ keyboard }}</p>
+
+        <div @click="clickOne">
+            <p @click.stop="clickTwo">Click test - stop and do not execute clickOne</p>
+        </div>
 
     </div>
 
