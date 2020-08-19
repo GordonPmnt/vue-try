@@ -21,6 +21,8 @@
         <p>{{ lazy }}</p>
         <input type="text" v-model="keyboard" @keyup.space="pressed" />
         <p>{{ keyboard }}</p>
+        <input type="text" v-model="custom" v-hey.modifierOne="custom" />
+        <p>{{ custom }}</p>
 
         <div @click="clickOne">
             <p @click.stop="clickTwo">Click test - stop and do not execute clickOne</p>
