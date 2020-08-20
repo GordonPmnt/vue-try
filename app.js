@@ -76,12 +76,16 @@ let formUser = {
     },
     template: `
         <form @submit.prevent="save">
+            <p><slot /></p>
             <label for="firstname">Firstname: </label>
             <input type="text" name="firstname" v-model="userLocal.firstname"></input>
             <p>{{ user }}</p>
             <button type="submit">Submit</button>
         </form>
-    `
+    `,
+    mounted() {
+        console.log(this.$slots) 
+    }
 }
 
 let vm = new Vue({
