@@ -13,7 +13,10 @@
 
 <body>
     <div id="app">
-
+      <message :message="message" other="This is not a variable because there is no ':'"></message>
+      <newmessage :newmessage="message"></newmessage>
+      <counter></counter>
+      <counter :start="3"></counter>
     </div>
 
     <script 
