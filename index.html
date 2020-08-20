@@ -13,6 +13,7 @@
 
 <body>
     <div id="app">
+      <form-user :user="user" @save="save"></form-user>
       <message :message="message" other="This is not a variable because there is no ':'"></message>
       <newmessage :newmessage="message"></newmessage>
       <counter></counter>

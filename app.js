@@ -60,10 +60,37 @@ let warning = {
     `
 }
 
+let formUser = {
+    props: {
+        user: Object,
+    },
+    data() {
+        return { 
+            userLocal: { ...this.user } // if we directly modify user, it changes the state in the parent (by reference), which is often cool, but not here for the form
+        }
+    },
+    methods: {
+        save() {
+            this.$emit('save', this.userLocal)
+        }
+    },
+    template: `
+        <form @submit.prevent="save">
+            <label for="firstname">Firstname: </label>
+            <input type="text" name="firstname" v-model="userLocal.firstname"></input>
+            <p>{{ user }}</p>
+            <button type="submit">Submit</button>
+        </form>
+    `
+}
+
 let vm = new Vue({
     el: '#app',
-    components: { message, newmessage, counter, warning },
+    components: { message, newmessage, counter, warning, formUser },
     data: {
+        user: {
+            firstname: 'Gordon'
+        },
         message: "Hey there!",
         alert: false,
     },
@@ -73,6 +100,9 @@ let vm = new Vue({
         },
         hideAlert() {
             this.alert = false
+        },
+        save(value) {
+            this.user = { ...value }
         }
     }
 })
