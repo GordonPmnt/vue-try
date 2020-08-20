@@ -17,6 +17,8 @@
       <newmessage :newmessage="message"></newmessage>
       <counter></counter>
       <counter :start="3"></counter>
+      <button v-if="!alert" @click="showAlert">Show Alert</button>
+      <warning :alert="alert" @close="hideAlert"></warning>
     </div>
 
     <script 

@@ -43,13 +43,36 @@ let counter = {
     }
 }
 
-let vm = new Vue({
-    el: '#app',
-    components: { message, newmessage, counter },
-    data: {
-        message: "Hey there!"
+let warning = {
+    props: {
+        alert: Boolean,
     },
     methods: {
+        close() {
+            this.$emit('close')
+        }
+    },
+    template: `
+        <div>
+            <p v-if="alert">Warning!</p>
+            <button v-if="alert" @click="close">Hide alert...</button>
+        </div>
+    `
+}
 
+let vm = new Vue({
+    el: '#app',
+    components: { message, newmessage, counter, warning },
+    data: {
+        message: "Hey there!",
+        alert: false,
+    },
+    methods: {
+        showAlert() {
+            this.alert = true
+        },
+        hideAlert() {
+            this.alert = false
+        }
     }
 })
